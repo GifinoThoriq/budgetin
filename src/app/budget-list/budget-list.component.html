@@ -1,0 +1,19 @@
+<li class="d-flex justify-content-between">
+  <div class="d-flex flex-column">
+    <span>{{ budget.itemName }}</span>
+    <span>{{ budget.date }}</span>
+  </div>
+  <div class="d-flex flex-column">
+    <span [class]="budget.budgetType" [class.price]="true"
+      >RM {{ budget.price }}</span
+    >
+    <div class="d-flex gap-2">
+      <button (click)="startEditBudget(budget)" class="btn btn-primary">
+        Edit
+      </button>
+      <button (click)="deleteBudget(budget)" class="btn btn-danger">
+        Delete
+      </button>
+    </div>
+  </div>
+</li>
