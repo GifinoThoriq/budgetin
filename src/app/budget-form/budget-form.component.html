@@ -1,0 +1,58 @@
+<form class="row g-3 mt-2">
+  <div class="col-md-12">
+    <label for="item-name" class="form-label">Item Name</label>
+    <input
+      [(ngModel)]="itemName"
+      (ngModelChange)="updateItemName()"
+      type="text"
+      name="itemname"
+      class="form-control"
+      id="item-name"
+    />
+  </div>
+  <div class="col-sm-6">
+    <label for="price" class="form-label">Price</label>
+    <input
+      [(ngModel)]="price"
+      (ngModelChange)="updatePrice()"
+      type="number"
+      name="price"
+      class="form-control"
+      id="price"
+    />
+  </div>
+  <div class="col-sm-6">
+    <label for="date" class="form-label">Date</label>
+    <input
+      [(ngModel)]="date"
+      (ngModelChange)="updateDate()"
+      name="date"
+      type="date"
+      class="form-control"
+      id="date"
+    />
+  </div>
+  <div class="col-sm-6">
+    <label for="type" class="form-label">Type</label>
+    <select
+      [(ngModel)]="budgetType"
+      (ngModelChange)="updateBudgetType()"
+      name="budgetType"
+      id="type"
+      class="form-select"
+    >
+      <option selected value="default">Choose...</option>
+      <option value="income">Income</option>
+      <option value="expense">Expense</option>
+    </select>
+  </div>
+  <div class="col-12" *ngIf="!editing">
+    <button (click)="addBudget()" class="btn btn-primary">submit</button>
+  </div>
+  <div class="col-12" *ngIf="editing">
+    <button (click)="editBudget()" class="btn btn-primary me-2">update</button>
+    <button (click)="cancelEditBudget()" class="btn btn-outline-primary">
+      cancel
+    </button>
+  </div>
+</form>
